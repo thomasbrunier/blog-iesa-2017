@@ -1,0 +1,4 @@
+services:
+#    joli_blog.example:
+#        class: JoliBlogBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
