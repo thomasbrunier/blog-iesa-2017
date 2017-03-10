@@ -1,0 +1,34 @@
+{% extends '@JoliBlog/layout.html.twig' %}
+
+{% block body %}
+    <div class="mastcontent bg-color-lightest">
+        <div class="container padding-y padding-lg">
+            <div class="grid">
+                <div class="grid__column grid__column--12">
+                    {{ form_start(form) }}
+                        <span class="color-tertiary">{{ form_errors(form) }}</span>
+                        <div>
+                            {{ form_label(form.title) }}
+                            <span class="color-tertiary">{{ form_errors(form.title) }}</span>
+                            {{ form_widget(form.title) }}
+                        </div>
+
+                        <div>
+                            {{ form_label(form.body) }}
+                            <span class="color-tertiary">{{ form_errors(form.body) }}</span>
+                            {{ form_widget(form.body) }}
+                        </div>
+
+                        <div>
+                            {{ form_label(form.isPublished) }}
+                            <span class="color-tertiary">{{ form_errors(form.isPublished) }}</span>
+                            {{ form_widget(form.isPublished) }}
+                        </div>
+
+                        <button type="submit" class="button">Créer</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
