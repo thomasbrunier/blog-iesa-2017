@@ -1,0 +1,50 @@
+{% extends '@JoliBlog/layout.html.twig' %}
+
+{% block body %}
+    {% if app.session.flashBag.has('success') %}
+            {% for msg in app.session.flashBag.get('success') %}
+                <div class="card card--outlined card--secondary color-secondary">
+                    <div class="card__content">
+                        {{ msg }}
+                    </div>
+                </div>
+            {% endfor %}
+    {% endif %}
+    <div class="mastcontent bg-color-lightest">
+        <div class="container padding-y padding-lg">
+            <div class="grid">
+                <div class="grid__column grid__column--12">
+                    <p>
+                        <a href="{{ path('new_post') }}" class="button">Nouvel article</a>
+                    </p>
+                    <table class="table" style="margin: 0 auto;">
+                        <thead class="table__head">
+                        <tr class="table__row table__row--heading">
+                            <th class="table__cell">ID</th>
+                            <th class="table__cell">Titre</th>
+                            <th class="table__cell">Corps</th>
+                            <th class="table__cell">Publié ?</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table__body">
+                        {% for post in posts %}
+                            <tr {% if post.id is odd %}style="background:lightgray;"{% endif %} class="table__row">
+                                <td class="table__cell">{{ post.id }}</td>
+                                <td class="table__cell">{{ post.title }}</td>
+                                <td class="table__cell">{{ post.body }}</td>
+                                <td class="table__cell">
+                                    {% if post.isPublished %}
+                                        <span style="color:green">•</span>
+                                    {% else %}
+                                        <span style="color:red">•</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

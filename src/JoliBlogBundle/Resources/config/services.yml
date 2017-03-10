@@ -1,0 +1,3 @@
+services:
+    joli.joli_service:
+        class: JoliBlogBundle\Service\JoliService
